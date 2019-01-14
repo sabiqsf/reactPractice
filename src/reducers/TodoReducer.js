@@ -1,15 +1,16 @@
-export default function TodoReducer(state={value:[{title:'example',isCompleted:false}]}
- ,action){
+const TodoReducer = (state={todo:[{todoTitle:'example',isCompleted:false}]}
+ ,action) =>{
   switch (action.type) {
-
-    case "AddtodoItem":
-     state.value.push({title:action.payload,isCompleted:false});
+      case "AddtodoItem":
+      state.todo.push({todoTitle:action.payload,isCompleted:false});
       break;
       case "ChangeTodoStatus":
-      state.value[action.index]={title:state.value[action.index].title,isCompleted:action.payload};
+      state.todo[action.index]={todoTitle:state.todo[action.index].todoTitle,isCompleted:action.payload};
       break;
-    default:
-      return state;
+      default:
+      break;
   }
 return state;
-}
+};
+
+export default TodoReducer;
